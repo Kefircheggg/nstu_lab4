@@ -17,8 +17,9 @@ double df(double x) {
 
 // Функция для метода простых итераций
 double phi(double x) {
-    return sqrt(cos(x + 0.3));
+    return x - 0.5 * (2 * log(x) - 0.5 * x + 1);
 }
+
 
 // Метод половинного деления
 void bisection(double a, double b, double precision) {
@@ -64,7 +65,7 @@ void newton(double x0, double precision) {
         x = x_prev - f(x_prev) / df(x_prev);
         delta = fabs(x - x_prev);
         cout << n << "\t" << fixed << setprecision(6) << x_prev << "\t" << x << "\t" << delta << endl;
-    } while (delta > precision);
+    } while (fabs(f(x)) > precision);
 
     cout << "Найденный корень: " << x << endl;
     cout << "Значение в корне: " << f(x) << endl;
@@ -88,7 +89,7 @@ void simple_iteration(double x0, double precision) {
         x = phi(x_prev);
         delta = fabs(x - x_prev);
         cout << n << "\t" << fixed << setprecision(6) << x_prev << "\t" << x << "\t" << delta << endl;
-    } while (delta > precision);
+    } while (fabs(f(x)) > precision);
 
     cout << "Найденный корень: " << x << endl;
     cout << "Значение в корне: " << f(x) << endl;
