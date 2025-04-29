@@ -1,8 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-#include <vector>
-#include <limits>
 
 using namespace std;
 
@@ -19,7 +17,6 @@ double df(double x) {
 double phi(double x) {
     return x - 0.5 * (2 * log(x) - 0.5 * x + 1);
 }
-
 
 // Метод половинного деления
 void bisection(double a, double b, double precision) {
@@ -99,12 +96,10 @@ void simple_iteration(double x0, double precision) {
 int main() {
     double precision = 0.0001; // требуемая точность
     double a = 0.0, b = 1.0;  // графически определили интервал
-
     // Начальное приближение для Ньютона и простых итераций (середина интервала)
     double x0 = (a+b)/2;
 
     cout << "Решение уравнения 2𝑙𝑛𝑥 − 0.5𝑥 + 1 = 0 с точностью " << precision << endl;
-
     bisection(a, b, precision);
     newton(x0, precision);
     simple_iteration(x0, precision);

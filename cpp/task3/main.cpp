@@ -46,7 +46,7 @@ int main() {
     vector<int> S;
     initRc4(S, K, n);
 
-    int num_bytes = 1;
+    int num_bytes = 5;
     vector<int> keystream = genRc4(S, n, num_bytes);
 
     for (int byte : keystream) {
